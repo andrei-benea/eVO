@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/andrei-benea/eVO#readme",
   "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "@babel/register": "^7.18.9",
     "chromedriver": "^105.0.0",
     "nightwatch": "^2.3.6"
   }
