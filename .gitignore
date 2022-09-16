@@ -41,6 +41,10 @@ build/Release
 node_modules/
 jspm_packages/
 
+# Tests output & input
+tests_output/
+tests_input/
+
 # TypeScript v1 declaration files
 typings/
 
