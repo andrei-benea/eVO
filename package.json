@@ -1,0 +1,23 @@
+{
+  "name": "evo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nightwatch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrei-benea/eVO.git"
+  },
+  "author": "andrei.benea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrei-benea/eVO/issues"
+  },
+  "homepage": "https://github.com/andrei-benea/eVO#readme",
+  "devDependencies": {
+    "chromedriver": "^105.0.0",
+    "nightwatch": "^2.3.6"
+  }
+}
