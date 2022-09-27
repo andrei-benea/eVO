@@ -1,9 +1,10 @@
-import EvoLogin from '../page_objects/evoLogin';
+import EvoLoginPage from '../page_objects/evoLogin';
 
-const evoLogin = new EvoLogin();
+const evoLogin = new EvoLoginPage();
 
-describe('Create a new patient', async () => {
-    it('browser initialization', async () => {
-        await evoLogin.initPage()
+describe('create patient', async () => {
+    it('initialize page', async () => {
+        await evoLogin.initPage();
+        await evoLogin.evoLogin();
     })
 })
