@@ -10,6 +10,8 @@ export default class EvoM16 {
         patientsAddNewButton: '[class="d-flex align-items-center bg-blue"] [class="px-4"]:nth-child(2)',
         patientsNewFormContainer: '[class="container-fluid border border-blue py-4 mb-3 ng-untouched ng-pristine ng-invalid"]',
         patientsNewFormContainerLabel: '[class="text-blue font-size-28"]',
+        patientNewFormNoFeeButton: '[id="no_fee"]',
+        patientNewFormHasFeeButton: '[id="has_fee"]',
         navActiveButton: '[class="d-flex align-items-center px-3 menu-item active-item"]',
         navInactiveButton: '[class="d-flex align-items-center px-3 menu-item"]'
     };
@@ -20,13 +22,13 @@ export default class EvoM16 {
     };
     async createPatient() {
         return browser
-            .click(this.elements.navPatientsAdmButton)
-            .click(this.elements.patientsAddNewButton)
+            .clickVisible(this.elements.navPatientsAdmButton)
+            .clickVisible(this.elements.patientsAddNewButton)
             .waitForElementVisible(this.elements.patientsNewFormContainer)
             .expect.element(this.elements.patientsNewFormContainerLabel).text.toContain('Patientendaten erfassen')
     }
     async logoutUser() {
         return browser
-            .click(this.elements.logoutButton)
+            .clickVisible(this.elements.logoutButton)
     }
 }
