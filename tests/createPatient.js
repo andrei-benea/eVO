@@ -9,5 +9,7 @@ describe('create patient', async () => {
         await evoLogin.initPage();
         await evoLogin.evoLogin();
         await evoM16.verifyLogin();
+        await evoM16.logoutUser();
+        await evoLogin.verifyLogout();
     })
 })
