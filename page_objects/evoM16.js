@@ -9,8 +9,13 @@ export default class EvoM16 {
         navDoctorsButton: '[class="d-flex align-items-center px-3 menu-item"]:nth-child(7)',
         navActiveButton: '[class="d-flex align-items-center px-3 menu-item active-item"]',
         navInactiveButton: '[class="d-flex align-items-center px-3 menu-item"]',
+        lowHeaderSearchField: '[formcontrolname="term"]',
+        lowHeaderSearchFieldInput: '[formcontrolname="term"] > div > div > div > div > input',
         lowHeaderSearchButton: '[class="btn btn-link text-white"]',
         patientsAddNewButton: '[class="d-flex align-items-center bg-blue"] [class="px-4"]:nth-child(2)',
+        patientsOverviewDeleteItemButton: '[class="fas fa-trash-alt mr-2 text-blue cursor-pointer"]',
+        patientsOverviewDeleteItemConfirmationButton: '[class="btn mx-3 btn-orange"]',
+        patientsOverviewPaginationSelectedRange: '[class="datatable-footer-inner selected-count"] [class="d-flex w-100 align-items-center justify-content-between px-4"] > div:nth-child(1)',
         newPatientFormContainer: '[class="container-fluid border border-blue py-4 mb-3 ng-untouched ng-pristine ng-invalid"]',
         newPatientFormContainerLabel: '[class="text-blue font-size-28"]',
         newPatientFormNoFeeButton: '[for="no_fee"]',
@@ -47,8 +52,8 @@ export default class EvoM16 {
             .clickVisible(this.elements.newPatientFormNoFeeButton)
             .clickVisible(this.elements.newPatientFormFemaleButton)
             .clickVisible(this.elements.newPatientFormMaleButton)
-            .setValueVisible(this.elements.newPatientFormFirstNameInput, 'Auto')
-            .setValueVisible(this.elements.newPatientFormLastNameInput, 'Tester')
+            .setValueVisible(this.elements.newPatientFormFirstNameInput, 'Automaticu')
+            .setValueVisible(this.elements.newPatientFormLastNameInput, 'Testeru')
             .setValueVisible(this.elements.newPatientFormDateOfBirthInput, '11111999')
             .setValueVisible(this.elements.newPatientFormKvnrInput, 'A987654321')
             .clickVisible(this.elements.newPatientFormCostBearerCombo)
@@ -82,7 +87,9 @@ export default class EvoM16 {
                 }
                 browser.sendKeys(this.elements.newPatientFormPostalCodeInput, [browser.Keys.ENTER])
             })
-            .pause(2000)
+            .pause(1000)
+            .clickVisible(this.elements.newPatientSaveButton)
+            .waitForElementVisible(this.elements.patientsOverviewPaginationSelectedRange)
     }
     async logoutUser() {
         return browser
