@@ -1,11 +1,9 @@
 export default class ClickVisible {
     async command(button) {
         return browser
-            .waitForElementVisible(button, async () => {
-                console.log('Element visible!')
-            })
+            .waitForElementVisible(button)
             .click(button, async () => {
-                console.log('clicking..')
+                console.log('Clicking..')
             })
     }
 }
