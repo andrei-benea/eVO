@@ -63,28 +63,26 @@ export default class EvoM16 {
             .setValueVisible(this.elements.newPatientFormPostalCodeInput, '47445')
             .pause(2000)
             .waitForElementVisible(this.elements.newPatientFormComboResult)
-            .sendKeys(this.elements.newPatientFormPostalCodeInput, [browser.Keys.ENTER])
-            // .elements('css selector', this.elements.newPatientFormComboResult, (object) => {
-            //     let i = 0;
-            //     let items = object[Object.keys(object)[0]];
-            //     let len = items.length;
-            //     for (i = 0; i < len; i++) {
-            //         browser.getText(items[i], async (result) => {
-            //             console.count('item: ')
-            //             console.log(result)
-            //                 if (result.value === '47445 - Moers') {
-            //                     for(let j = 0; j <= len; j++) {
-            //                             browser.sendKeys(this.elements.newPatientFormComboResult, [browser.Keys.ARROW_DOWN])
-            //                     }
-            //                     browser
-            //                         .sendKeys(this.elements.newPatientFormComboResult, [browser.Keys.ENTER])
-            //                         .pause(1000)
-            //                 }
-            //                 else return
-            //             })
-            //     }
-            // })
-            .pause(3000)
+            .elements('css selector', this.elements.newPatientFormComboResult, (object) => {
+                let i = 0;
+                let items = object[Object.keys(object)[0]];
+                console.log(items)
+                let len = items.length;
+                for (i = 0; i < len - 3; i++) {
+                    console.log('i: ' + i)
+                    browser.getText(items[i], async (result) => {
+                        console.count('item: ')
+                        console.log(result)
+                        browser.sendKeys(this.elements.newPatientFormPostalCodeInput, [browser.Keys.ARROW_DOWN])
+                            if (result.value === '47445 - Moers') {
+                                browser.sendKeys(this.elements.newPatientFormPostalCodeInput, [browser.Keys.ENTER])
+                            }
+                            else return
+                        })
+                }
+                browser.sendKeys(this.elements.newPatientFormPostalCodeInput, [browser.Keys.ENTER])
+            })
+            .pause(2000)
     }
     async logoutUser() {
         return browser
