@@ -6,7 +6,9 @@ export default class EvoLoginPage {
         loginLabel: '[class="text-white pl-3"]',
         usernameInput: '[name="username"]',
         passwordInput: '[name="password"]',
-        loginButton: '[class="btn btn-white btn-login"]'
+        loginButton: '[class="btn btn-white btn-login"]',
+        loggedInUser: '[class="px-3 text-white"]',
+        logoutButton: '[class="btn btn-sm btn-blue"]:nth-child(3)',
     };
     async initPage() {
         return browser
@@ -17,6 +19,15 @@ export default class EvoLoginPage {
     async evoLogin() {
         return browser
             .auth(this.elements.usernameInput, credentials.evo.username, this.elements.passwordInput, credentials.evo.password, this.elements.loginButton);
+    };
+    async verifyLogin() {
+        return browser
+            .waitForElementVisible(this.elements.loggedInUser)
+            .expect.element(this.elements.loggedInUser).text.toContain(credentials.evo.firstName + ' ' + credentials.evo.lastName)
+    };
+    async logoutUser() {
+        return browser
+            .clickVisible(this.elements.logoutButton)
     };
     async verifyLogout() {
         return browser
