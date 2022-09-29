@@ -1,10 +1,6 @@
-// import { credentials } from "../tests_input/credentials";
-
 export default class EvoPatients {
     url = 'https://check-evo-m16.x3.net/account/patients/list';
     elements = {
-        // loggedInUser: '[class="px-3 text-white"]',
-        // logoutButton: '[class="btn btn-sm btn-blue"]:nth-child(3)',
         navPatientsButton: '[class="d-flex align-items-center px-3 menu-item"]:nth-child(6)',
         navDoctorsButton: '[class="d-flex align-items-center px-3 menu-item"]:nth-child(7)',
         navActiveButton: '[class="d-flex align-items-center px-3 menu-item active-item"]',
@@ -38,11 +34,6 @@ export default class EvoPatients {
         newPatientFormCityCombo: '[formcontrolname="city"]',
         newPatientSaveButton: '[class="btn btn-orange px-3"]'
     };
-    // async verifyLogin() {
-    //     return browser
-    //         .waitForElementVisible(this.elements.loggedInUser)
-    //         .expect.element(this.elements.loggedInUser).text.toContain(credentials.evo.firstName + ' ' + credentials.evo.lastName)
-    // };
     async createPatient() {
         return browser
             .clickVisible(this.elements.navPatientsButton)
@@ -102,8 +93,4 @@ export default class EvoPatients {
             .clickVisible(this.elements.patientsOverviewDeleteItemConfirmationButton)
             .waitForElementVisible(this.elements.patientsOverviewEmptyRowLabel)
     };
-    // async logoutUser() {
-    //     return browser
-    //         .clickVisible(this.elements.logoutButton)
-    // };
 }
