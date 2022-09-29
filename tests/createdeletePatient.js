@@ -10,6 +10,8 @@ describe('create patient', async () => {
         await evoLogin.evoLogin();
         await evoM16.verifyLogin();
         await evoM16.createPatient();
+        await evoM16.searchForPatient();
+        await evoM16.deletePatient();
         await evoM16.logoutUser();
         await evoLogin.verifyLogout();
     })

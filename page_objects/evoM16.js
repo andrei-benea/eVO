@@ -13,6 +13,7 @@ export default class EvoM16 {
         lowHeaderSearchFieldInput: '[formcontrolname="term"] > div > div > div > div > input',
         lowHeaderSearchButton: '[class="btn btn-link text-white"]',
         patientsAddNewButton: '[class="d-flex align-items-center bg-blue"] [class="px-4"]:nth-child(2)',
+        patientsOverviewEmptyRowLabel: '[class="empty-row"]',
         patientsOverviewDeleteItemButton: '[class="fas fa-trash-alt mr-2 text-blue cursor-pointer"]',
         patientsOverviewDeleteItemConfirmationButton: '[class="btn mx-3 btn-orange"]',
         patientsOverviewPaginationSelectedRange: '[class="datatable-footer-inner selected-count"] [class="d-flex w-100 align-items-center justify-content-between px-4"] > div:nth-child(1)',
@@ -71,10 +72,8 @@ export default class EvoM16 {
             .elements('css selector', this.elements.newPatientFormComboResult, (object) => {
                 let i = 0;
                 let items = object[Object.keys(object)[0]];
-                console.log(items)
                 let len = items.length;
                 for (i = 0; i < len - 3; i++) {
-                    console.log('i: ' + i)
                     browser.getText(items[i], async (result) => {
                         console.count('item: ')
                         console.log(result)
@@ -90,9 +89,21 @@ export default class EvoM16 {
             .pause(1000)
             .clickVisible(this.elements.newPatientSaveButton)
             .waitForElementVisible(this.elements.patientsOverviewPaginationSelectedRange)
-    }
+    };
+    async searchForPatient() {
+        return browser
+            .setValueVisible(this.elements.lowHeaderSearchFieldInput, 'Testeru')
+            .clickVisible(this.elements.lowHeaderSearchButton)
+            .expect.element(this.elements.patientsOverviewPaginationSelectedRange).text.toContain('1 - 1 von 1')
+    };
+    async deletePatient() {
+        return browser
+            .clickVisible(this.elements.patientsOverviewDeleteItemButton)
+            .clickVisible(this.elements.patientsOverviewDeleteItemConfirmationButton)
+            .waitForElementVisible(this.elements.patientsOverviewEmptyRowLabel)
+    };
     async logoutUser() {
         return browser
             .clickVisible(this.elements.logoutButton)
-    }
+    };
 }
