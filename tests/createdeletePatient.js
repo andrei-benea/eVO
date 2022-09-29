@@ -11,9 +11,13 @@ describe('create patient', async () => {
         await evoLogin.initPage();
         await evoLogin.evoLogin();
         await evoLogin.verifyLogin();
+    })
+    it('create the patient', async () => {
         await evoPatients.createPatient();
         await evoPatients.searchForPatient();
         await evoPatients.deletePatient();
+    })
+    it('logout & end', async () => {
         await evoLogin.logoutUser();
         await evoLogin.verifyLogout();
     })
