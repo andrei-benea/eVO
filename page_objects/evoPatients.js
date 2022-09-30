@@ -81,7 +81,7 @@ export default class EvoPatients {
             .clickVisible(this.elements.newPatientSaveButton)
             .waitForElementVisible(this.elements.patientsOverviewPaginationSelectedRange)
     };
-    async searchForPatient() {
+    async searchForPatientPatients() {
         return browser
             .setValueVisible(this.elements.lowHeaderSearchFieldInput, 'Testeru')
             .clickVisible(this.elements.lowHeaderSearchButton)
