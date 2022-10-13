@@ -1,11 +1,14 @@
 import EvoLoginPage from '../page_objects/evoLogin';
 import EvoM16 from '../page_objects/evoM16';
+import PrescriptionPdf from '../page_objects/prescriptionPdf';
 
 const evoLogin = new EvoLoginPage();
 const evoM16 = new EvoM16();
+const prescriptionPdf = new PrescriptionPdf();
 
-describe('create patient', async () => {
+describe('send evo', async () => {
     it('initialize & login', async () => {
+        await evoLogin.checkRequest();
         await evoLogin.initPage();
         await evoLogin.evoLogin();
         await evoLogin.verifyLogin();
@@ -31,6 +34,15 @@ describe('create patient', async () => {
     it('choose service provider', async () => {
         await evoM16.chooseLe();
     })
+    // it('switch to pdf', async () => {
+    //     await prescriptionPdf.switchToPdf();
+    // })
+    // it('verify pdf', async () => {
+    //     await prescriptionPdf.verifyPdfPrescription();
+    // })
+    // it('switch to client', async () => {
+    //     await prescriptionPdf.switchToClient();
+    // })
     it('verify decision', async () => {
         await evoM16.verifyDecision();
     })

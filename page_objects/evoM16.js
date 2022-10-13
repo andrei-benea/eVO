@@ -105,5 +105,9 @@ export default class EvoM16 {
                 }
                 else console.log('Wrong decision!')
             })
-    }
+    };
+    async verifyPdfPatients() {
+        return browser
+            .navTo(this.elements.navPatientsButton)
+    };
 }

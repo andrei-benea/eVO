@@ -10,6 +10,13 @@ export default class EvoLoginPage {
         loggedInUser: '[class="px-3 text-white"]',
         logoutButton: '[class="btn btn-sm btn-blue"]:nth-child(3)',
     };
+    async checkRequest() {
+        return browser
+            .captureNetworkRequests((requestParams) => {
+                console.log('url: ' + requestParams.request.url)
+                console.log('method: ' + requestParams.request.method)
+            })
+    };
     async initPage() {
         return browser
             .maximizeWindow()

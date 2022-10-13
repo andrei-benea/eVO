@@ -36,7 +36,7 @@ export default class EvoPatients {
     };
     async createPatient() {
         return browser
-            .clickVisible(this.elements.navPatientsButton)
+            .navTo(this.elements.navPatientsButton)
             .clickVisible(this.elements.patientsAddNewButton)
             .waitForElementVisible(this.elements.newPatientFormContainer)
             .expect.element(this.elements.newPatientFormContainerLabel).text.toContain('Patientendaten erfassen')
