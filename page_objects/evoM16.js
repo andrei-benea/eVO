@@ -1,3 +1,7 @@
+import  Utils  from '../custom_commands/utils';
+
+const utils = new Utils();
+
 export default class EvoM16 {
     url = 'https://check-evo-m16.x3.net/regulation/m16';
     elements = {
@@ -97,7 +101,7 @@ export default class EvoM16 {
             .getText(this.elements.decisionText, async (text) => {
                 console.log(text)
                 if (text.value === 'Im Namen der BARMER bedanken wir uns bei Ihnen.\n' +
-                'Die Verordnung wurde an Abbott GmbH weitergeleitet, wo die nächsten Schritte automatisch eingeleitet werden.\n' +
+                'Die Verordnung wurde an Abbott GmbH & Co. KG weitergeleitet, wo die nächsten Schritte automatisch eingeleitet werden.\n' +
                 'Bitte senden Sie die Verordnung in Papierform an\n' +
                 'HMM Deutschland GmbH,\n' +
                 'Eurotec-Ring 10, 47445 Moers.') {

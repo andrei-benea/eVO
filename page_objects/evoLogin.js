@@ -1,4 +1,7 @@
 import { credentials } from '../tests_input/credentials';
+import  Utils  from '../custom_commands/utils';
+
+const utils = new Utils();
 
 export default class EvoLoginPage {
     url = 'https://check-evo-m16.x3.net/login';

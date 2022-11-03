@@ -1,4 +1,4 @@
-export default class ClickVisible {
+export default class SetValueVisible {
     async command(input, string) {
         return browser
             .waitForElementVisible(input)
