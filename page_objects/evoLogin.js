@@ -20,6 +20,10 @@ export default class EvoLoginPage {
                 console.log('method: ' + requestParams.request.method)
             })
     };
+    async saveEvoNr() {
+        return browser
+            .saveEvoNrToFile();
+    };
     async initPage() {
         return browser
             .maximizeWindow()

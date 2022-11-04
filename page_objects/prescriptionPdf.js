@@ -14,5 +14,8 @@ export default class PrescriptionPdf {
     async verifyPdfPrescription() {
         return browser
             .waitForElementVisible(this.elements.pdfViewerContainer)
-    }
+    };
+    async checkFileExists() {
+        
+    };
 }

@@ -8,7 +8,7 @@ const prescriptionPdf = new PrescriptionPdf();
 
 describe('send evo', async () => {
     it('initialize & login', async () => {
-        await evoLogin.checkRequest();
+        await evoLogin.saveEvoNr();
         await evoLogin.initPage();
         await evoLogin.evoLogin();
         await evoLogin.verifyLogin();
@@ -40,9 +40,9 @@ describe('send evo', async () => {
     // it('verify pdf', async () => {
     //     await prescriptionPdf.verifyPdfPrescription();
     // })
-    // it('switch to client', async () => {
-    //     await prescriptionPdf.switchToClient();
-    // })
+    it('switch to client', async () => {
+        await prescriptionPdf.switchToClient();
+    })
     it('verify decision', async () => {
         await evoM16.verifyDecision();
     })
