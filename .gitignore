@@ -8,6 +8,7 @@ lerna-debug.log*
 
 # Additional
 tests_input/credentials/
+download/
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
