@@ -52,7 +52,7 @@ module.exports = {
         chromeOptions:{
           prefs:{
              download:{
-                default_directory:require('path').resolve(__dirname + '/download')
+                default_directory:require('path').resolve(__dirname + '../download')
              }
           }
        }

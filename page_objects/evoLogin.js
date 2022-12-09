@@ -11,7 +11,7 @@ export default class EvoLoginPage {
         passwordInput: '[name="password"]',
         loginButton: '[class="btn btn-white btn-login"]',
         loggedInUser: '[class="px-3 text-white"]',
-        logoutButton: '[class="btn btn-sm btn-blue"]:nth-child(3)',
+        logoutButton: '[class="btn btn-sm btn-blue"]:nth-child(5)',
     };
     async checkRequest() {
         return browser

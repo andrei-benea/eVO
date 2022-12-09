@@ -1,8 +1,6 @@
 export default class PrescriptionPdf {
     url = '';
-    elements = {
-        pdfViewerContainer: '[id="viewer"]'
-    };
+    elements = {};
     async switchToPdf() {
         return browser
             .switchTab(1);
@@ -11,11 +9,18 @@ export default class PrescriptionPdf {
         return browser
             .switchTab(0);
     };
-    async verifyPdfPrescription() {
+    async getUrl() {
         return browser
-            .waitForElementVisible(this.elements.pdfViewerContainer)
+            .getCurrentUrl(async (url) => {
+                console.log(url)
+            });
     };
-    async checkFileExists() {
-        
+    async fuckingShit() {
+        return browser
+            .get()
+    }
+    async verifyDownload() {
+        return browser
+            .checkFileExists()
     };
 }

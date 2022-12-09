@@ -98,6 +98,7 @@ export default class EvoM16 {
     async verifyDecision() {
         return browser
             .waitForElementVisible(this.elements.searchResultBox)
+            .pause(10000)
             .getText(this.elements.decisionText, async (text) => {
                 console.log(text)
                 if (text.value === 'Im Namen der BARMER bedanken wir uns bei Ihnen.\n' +
